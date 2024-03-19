@@ -33,7 +33,7 @@ Handsontable.create(
     # Options are the Handsontable options, see https://handsontable.com/docs/javascript-data-grid/api/options/
     options = list(
         data=exampleDF,
-        rowHeaders=TRUE,
+        rowHeaders=FALSE, # Do not show the row headers (1, 2, 3, etc.)
         colHeaders=TRUE,
 
         autoColumnSize=TRUE,
