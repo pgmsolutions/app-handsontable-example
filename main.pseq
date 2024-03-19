@@ -38,15 +38,6 @@
 			"name": "",
 			"target": "",
 			"type": "end"
-		},
-		{
-			"uuid": 5,
-			"file": "wait.pgui",
-			"id": "wait",
-			"name": "wait",
-			"type": "gui",
-			"x": 380,
-			"y": 140
 		}
 	]
 }
