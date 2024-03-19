@@ -112,6 +112,17 @@ columns[[colorsColumnIndex]] <- list(
     source=carColors
 )
 
+# Also override the second mpg column for number formatting
+columns[[2]] <- list(
+    type="numeric",
+    numericFormat=list(
+        pattern=list( # Pattern documentation is from a library named numbro: https://numbrojs.com/format.html#numbers
+            thousandSeparated=TRUE,
+            mantissa=4
+        )
+    )
+)
+
 # Create the table
 Handsontable.create(
     'example2',
