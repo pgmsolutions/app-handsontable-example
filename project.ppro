@@ -15,6 +15,7 @@
 	"customFiles": [
 		"modules/handsontable/deps/handsontable.full.min.css",
 		"modules/handsontable/deps/handsontable.full.min.js",
-		"modules/handsontable/main.js"
+		"modules/handsontable/main.js",
+		"modules/handsontable/main.css"
 	]
 }

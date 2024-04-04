@@ -103,6 +103,6 @@
 			}
 		}
 	],
-	"language": "r",
-	"submitbutton": true
+	"submitbutton": true,
+	"language": "r"
 }
