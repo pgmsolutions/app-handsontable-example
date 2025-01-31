@@ -67,6 +67,9 @@ window.HandsontableInstance = class {
     constructor(options){
         this._id = options.id;
 
+        /** Prevent recursive updates */
+        this._skipNextChange = false;
+
         /** Timer to not send too much changes to RPGM */
         this._debouncer = null;
         this._debouncerData = null;
@@ -108,6 +111,10 @@ window.HandsontableInstance = class {
     }
 
     onValueChange(){
+        if(this._skipNextChange){
+            this._skipNextChange = false;
+            return;
+        }
         if(this._debouncer2 !== null){
             clearTimeout(this._debouncer2);
         }
@@ -128,7 +135,11 @@ window.HandsontableInstance = class {
             }
             for(let r = 0; r < content.length; r++) {
                 for (let c = 0; c < content[r].length; c++) {
-                    contentObject[`c${c}`][r] = content[r][c];
+                    if(content[r][c] == null){
+                        contentObject[`c${c}`][r] = ''
+                    } else {
+                        contentObject[`c${c}`][r] = content[r][c];
+                    }
                 }
             }
         }
@@ -143,6 +154,8 @@ window.HandsontableInstance = class {
             cols: colsHeaders.every(h => h === false) ? [] : colsHeaders,
             rows: rowsHeaders.every(h => h === false) ? [] : rowsHeaders,
             value: contentObject
+        }, {
+            rArrayType: 'vector'
         });
     }
 
@@ -167,6 +180,7 @@ window.HandsontableInstance = class {
         if(!this._active){
             return;
         }
+        this._skipNextChange = true;
         this._table.updateSettings(settings);
     }
 

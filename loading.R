@@ -71,7 +71,7 @@ Handsontable.on('main', 'onDidChangeSelection', function(selection){
         gui.setValue("this", "selection", "Selection: nothing is selected!")
     }
     else {
-        gui.setValue("this", "selection", paste0("Selection: from (",selection[[1L]],",",selection[[2L]],") to (",selection[[3L]],",",selection[[4L]],")!"))
+        gui.setValue("this", "selection", paste0("Selection: from (",selection[[1L]][[1L]],",",selection[[1L]][[2L]],") to (",selection[[1L]][[3L]],",",selection[[1L]][[4L]],")!"))
     }
 });
 
